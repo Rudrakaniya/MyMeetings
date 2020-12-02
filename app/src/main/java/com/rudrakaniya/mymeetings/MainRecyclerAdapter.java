@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rudrakaniya.mymeetings.entity.Meeting;
+
 import java.util.List;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>{
@@ -34,7 +36,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
         Section section = sectionList.get(position);
         String sectionName = section.getSectionName();
-        List<String> items = section.getSectionItems();
+        List<Meeting> items = section.getSectionItems();
 
         holder.sectionNameTextView.setText(sectionName);
 

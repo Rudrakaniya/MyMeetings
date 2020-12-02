@@ -8,13 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rudrakaniya.mymeetings.entity.Meeting;
+
 import java.util.List;
 
 public class ChildRecyclerAdapter extends RecyclerView.Adapter<ChildRecyclerAdapter.ViewHolder>{
 
-    List<String> items;
+    private List<Meeting> items;
 
-    public ChildRecyclerAdapter(List<String> items) {
+    public ChildRecyclerAdapter(List<Meeting> items) {
         this.items = items;
     }
 
@@ -28,7 +30,8 @@ public class ChildRecyclerAdapter extends RecyclerView.Adapter<ChildRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.itemTextView.setText(items.get(position));
+        Meeting meeting = items.get(position);
+        holder.itemTextView.setText(meeting.getMeetingTitle());
     }
 
     @Override
