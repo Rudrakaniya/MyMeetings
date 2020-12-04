@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,17 +44,17 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         floatingActionButton = findViewById(R.id.floating_action_button);
 
-    //    initData();
+        //    initData();
 
 
         mainRecyclerView = findViewById(R.id.mainRecyclerView);
 
         Log.d(TAG, "onCreate: Selection" + sectionList);
-        MainRecyclerAdapter mainRecyclerAdapter =new MainRecyclerAdapter(sectionList);
+        MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(sectionList);
         mainRecyclerView.setAdapter(mainRecyclerAdapter);
 
 
-        mainRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        mainRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -66,11 +67,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-        floatingActionButton.setOnClickListener(v ->
-                Snackbar.make(findViewById(android.R.id.content), "Floating Action bar clicked", Snackbar.LENGTH_SHORT).show()
-        );
+        floatingActionButton.setOnClickListener(v -> {
+//            Snackbar.make(findViewById(android.R.id.content), "Floating Action bar clicked", Snackbar.LENGTH_SHORT).show();
+            Intent myIntent = new Intent(MainActivity.this, MeetingMessage.class);
+            MainActivity.this.startActivity(myIntent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
 
         MeetingRepository meetingRepository = new MeetingRepository(MyApplication.getContext());
 
@@ -90,19 +92,18 @@ public class MainActivity extends AppCompatActivity {
             Map<LocalDate, List<Meeting>> map = meetingsList.stream()
                     .collect(Collectors.groupingBy(meeting -> {
                         LocalDateTime dateTime = LocalDateTime.parse(meeting.getDate());
-                        return  dateTime.toLocalDate();
+                        return dateTime.toLocalDate();
                     }, Collectors.toList()));
 
             map.forEach((date, meetings) -> {
 
                 if (!date.isBefore(LocalDate.now())) {
                     if (date.equals(LocalDate.now())) {
-                        sectionList.add(new Section("Today", date ,meetings));
+                        sectionList.add(new Section("Today", date, meetings));
                     } else if (LocalDate.now().plusDays(1).equals(date)) {
-                        sectionList.add(new Section("Tomorrow",date, meetings));
-                    }
-                    else {
-                        sectionList.add(new Section(date.toString(),date,  meetings));
+                        sectionList.add(new Section("Tomorrow", date, meetings));
+                    } else {
+                        sectionList.add(new Section(date.toString(), date, meetings));
                     }
                 }
             });
