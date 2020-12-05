@@ -2,9 +2,11 @@ package com.rudrakaniya.mymeetings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
@@ -50,6 +52,14 @@ public class MeetingMessage extends AppCompatActivity {
             }
         });
 
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MeetingMessage.this, EditMeeting.class);
+                MeetingMessage.this.startActivity(myIntent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
     }
 
     @Override
