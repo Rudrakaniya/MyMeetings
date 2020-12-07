@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeRefreshLayout;
     FloatingActionButton floatingActionButton;
 
+    ImageView mEmptyImageView;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         //    initData();
 
-
+        mEmptyImageView = findViewById(R.id.emptyImageView);
         mainRecyclerView = findViewById(R.id.mainRecyclerView);
 
         Log.d(TAG, "onCreate: Selection" + sectionList);
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Hello4",
 //                false,
 //                "meet",
-//                LocalDateTime.of(2020,12, 3, 10, 30).toString(),
+//                LocalDateTime.of(2020,12, 7, 10, 30).toString(),
 //                "www.google.com",
 //                "sfhsdfd",
 //                "Helllo world"
@@ -109,8 +113,16 @@ public class MainActivity extends AppCompatActivity {
             });
             sectionList.sort((o1, o2) -> o1.getDate().compareTo(o2.getDate()));
             Log.d(TAG, "onCreate: Meetings " + meetingsList);
+
+            if (!sectionList.isEmpty()){
+                mEmptyImageView.setVisibility(View.INVISIBLE);
+            }
         });
 
+
+        //Setting Empty Image
+        if (sectionList.size() == 0){
+        }
 
     }
 //

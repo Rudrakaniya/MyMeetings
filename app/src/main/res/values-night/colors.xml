@@ -8,4 +8,9 @@
     <color name="titleColor">#FFFFFFFF</color>
     <color name="actionBarStroke">#303030</color>
     <color name="editTextBackground">#202020</color>
+    <color name="colorPink">#f92b45</color>
+    <color name="colorLightPink">#B22222</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+
+
 </resources>

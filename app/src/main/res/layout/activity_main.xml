@@ -54,9 +54,26 @@
         android:layout_margin="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="64dp"
+        app:backgroundTint="@color/colorPink"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:tint="#FFF"
         app:layout_constraintBottom_toBottomOf="@+id/swipeRefreshLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
     />
+
+    <ImageView
+        android:id="@+id/emptyImageView"
+        android:layout_width="wrap_content"
+        android:padding="32dp"
+        android:src="@drawable/ic_empty"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/swipeRefreshLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

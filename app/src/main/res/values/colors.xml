@@ -10,5 +10,8 @@
     <color name="titleColor">#000000</color>
     <color name="actionBarStroke">#D8D8DF</color>
     <color name="editTextBackground">#F8F8F8</color>
+    <color name="colorPink">#f92b45</color>
+    <color name="colorLightPink">#FFC0CB</color>
+    <color name="colorWhite">#FFFFFFFF</color>
 
 </resources>

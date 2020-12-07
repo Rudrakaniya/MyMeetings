@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EditMeeting">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/action_bar"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -15,127 +15,332 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/titleColor"
-            android:textSize="28sp" />
-    </com.google.android.material.appbar.MaterialToolbar>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/backArrowImageView"
+                    android:layout_width="42dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Previous"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/backArrowImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/title_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="TITLE"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/action_bar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/title_editText"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Review"
+                android:textColor="@color/titleColor"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent">-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/rightArrowImageView"-->
+            <!--                    android:layout_width="48dp"-->
+            <!--                    android:layout_height="48dp"-->
+            <!--                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Save"-->
+            <!--                    android:textSize="18sp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@id/rightArrowImageView"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_edittext"
-        android:maxLines="2"
-        android:padding="8dp"
-        android:paddingStart="16dp"
-        android:textSize="20sp"
-        app:layout_constraintCircleRadius="16dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/action_bar">
 
-    <TextView
-        android:id="@+id/platform_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="PLATFORM"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_editText" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/platform_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_edittext"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:paddingStart="16dp"
-        android:textSize="20sp"
-        app:layout_constraintCircleRadius="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/platform_textView" />
 
-    <TextView
-        android:id="@+id/date_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="DATE"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/platform_editText" />
+            <TextView
+                android:id="@+id/title_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="TITLE"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/date_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:clickable="true"
-        android:background="@drawable/rounded_edittext"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:paddingStart="16dp"
-        android:textSize="20sp"
-        app:layout_constraintCircleRadius="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_textView" />
+            <EditText
+                android:id="@+id/title_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:maxLines="2"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_textView" />
 
-    <TextView
-        android:id="@+id/url_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="URL"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_editText" />
+            <TextView
+                android:id="@+id/date_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="DATE"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_editText" />
 
-    <EditText
-        android:id="@+id/url_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_edittext"
-        android:maxLines="3"
-        android:minLines="2"
-        android:padding="8dp"
-        android:paddingStart="16dp"
-        android:textSize="20sp"
-        app:layout_constraintCircleRadius="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/url_textView" />
+            <TextView
+                android:id="@+id/date_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:clickable="true"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/spinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_textView" />
+
+            <TextView
+                android:id="@+id/mode_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="MODE"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/date_editText"
+                app:layout_constraintTop_toBottomOf="@+id/title_editText" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toEndOf="@+id/date_editText"
+                app:layout_constraintTop_toBottomOf="@+id/mode_textView"
+                app:layout_constraintVertical_bias="0.498" />
+
+            <TextView
+                android:id="@+id/platform_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="PLATFORM"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_editText" />
+
+            <EditText
+                android:id="@+id/platform_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/platform_textView" />
+
+
+            <TextView
+                android:id="@+id/url_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="URL"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/platform_editText" />
+
+            <EditText
+                android:id="@+id/url_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:maxLines="3"
+                android:minLines="2"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/url_textView" />
+
+            <TextView
+                android:id="@+id/id_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="ID"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/url_editText" />
+
+            <EditText
+                android:id="@+id/id_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_textView" />
+
+            <TextView
+                android:id="@+id/password_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="PASSWORD"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_editText" />
+
+            <EditText
+                android:id="@+id/password_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:textSize="20sp"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_textView" />
+
+
+            <TextView
+                android:id="@+id/og_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="ORIGINAL MESSAGE"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_editText" />
+
+            <EditText
+                android:id="@+id/messageEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_edittext"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="14"
+                android:minLines="2"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/og_textView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:text="Save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageEditText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
