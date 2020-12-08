@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
 
     ImageView mEmptyImageView;
+    MainRecyclerAdapter mainRecyclerAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mainRecyclerView = findViewById(R.id.mainRecyclerView);
 
         Log.d(TAG, "onCreate: Selection" + sectionList);
-        MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(sectionList);
+        mainRecyclerAdapter = new MainRecyclerAdapter(sectionList);
         mainRecyclerView.setAdapter(mainRecyclerAdapter);
 
 
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 //                "Helllo world"
 //        ));
 
+
         MeetingsRoomDatabase.databaseWriteExecutor.execute(() -> {
             List<Meeting> meetingsList = meetingRepository.getAllMeetings();
 
@@ -120,11 +122,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //Setting Empty Image
-        if (sectionList.size() == 0){
-        }
+
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Snackbar.make(findViewById(android.R.id.content), "On it!", Snackbar.LENGTH_SHORT).show();
+
+        mainRecyclerAdapter.notifyDataSetChanged();
+    }
+
 //
 //    private void initData(){
 //

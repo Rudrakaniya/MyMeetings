@@ -7,6 +7,7 @@ import com.rudrakaniya.mymeetings.entity.Meeting;
 import java.util.List;
 
 public class MeetingRepository {
+
     private MeetingsDao meetingsDao;
 //    private LiveData<List<Word>> mAllWords;
 
