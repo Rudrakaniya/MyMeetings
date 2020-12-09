@@ -45,6 +45,8 @@ public class Section {
     public String toString() {
         return "Section{" +
                 "sectionName='" + sectionName + '\'' +
-                '}' + "\n";
+                ", date=" + date +
+                ", sectionItems=" + sectionItems +
+                '}';
     }
 }

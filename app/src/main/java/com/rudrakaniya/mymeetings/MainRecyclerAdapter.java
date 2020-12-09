@@ -12,15 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rudrakaniya.mymeetings.entity.Meeting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>{
 
-    List<Section> sectionList;
-
-    public MainRecyclerAdapter(List<Section> sectionList) {
-        this.sectionList = sectionList;
-    }
+    private List<Section> sectionList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -46,12 +43,17 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     }
 
+    public void setSectionList(List<Section> sectionList) {
+        this.sectionList = sectionList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return sectionList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView sectionNameTextView;
         RecyclerView childRecyclerView;

@@ -22,7 +22,7 @@ public abstract class MeetingsRoomDatabase extends RoomDatabase {
     //Making a Singleton
     private static volatile MeetingsRoomDatabase INSTANCE;
 
-    static MeetingsRoomDatabase getInstance(Context context){
+    public static MeetingsRoomDatabase getInstance(Context context){
         if (INSTANCE == null){
             synchronized (MeetingsRoomDatabase.class){
                 if(INSTANCE == null){

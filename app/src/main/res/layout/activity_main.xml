@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:padding="32dp"
         android:src="@drawable/ic_empty"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/swipeRefreshLayout"
         app:layout_constraintEnd_toEndOf="parent"

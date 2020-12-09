@@ -1,5 +1,6 @@
 package com.rudrakaniya.mymeetings.db;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -16,4 +17,7 @@ public interface MeetingsDao {
 
     @Query("SELECT * FROM meetings_table")
     List<Meeting> getAllMeetings();
+
+    @Query("SELECT * FROM meetings_table")
+    LiveData<List<Meeting>> findAllMeetings();
 }

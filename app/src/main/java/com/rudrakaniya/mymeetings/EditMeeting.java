@@ -136,7 +136,7 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
                             mPassword,
                             mMessage
                     ));
-                    Snackbar.make(findViewById(android.R.id.content), "Meeting Added Successfully :)", Snackbar.LENGTH_SHORT).show();
+//                    Snackbar.make(findViewById(android.R.id.content), "Meeting Added Successfully :)", Snackbar.LENGTH_SHORT).show();
 
 //                    Intent myIntent = new Intent(EditMeeting.this, MainActivity.class);
 //                    EditMeeting.this.startActivity(myIntent);
