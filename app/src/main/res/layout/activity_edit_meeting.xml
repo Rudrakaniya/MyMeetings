@@ -123,6 +123,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/rounded_edittext"
+                android:inputType="textAutoCorrect|textCapSentences"
+                android:focusable="true"
                 android:maxLines="2"
                 android:padding="8dp"
                 android:paddingStart="16dp"
