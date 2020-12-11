@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecycleViewClickListener {
 
     private static final String TAG = "MainActivity";
     RecyclerView mainRecyclerView;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         mEmptyImageView = findViewById(R.id.emptyImageView);
         mainRecyclerView = findViewById(R.id.mainRecyclerView);
 
-        mainRecyclerAdapter = new MainRecyclerAdapter();
+        mainRecyclerAdapter = new MainRecyclerAdapter(this);
         mainRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
@@ -102,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(View view, Meeting meeting) {
+//        Toast.makeText(this, meeting.getMeetingTitle(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MeetingInfo.class);
+        intent.putExtra("title", meeting.getMeetingTitle());
+        intent.putExtra("date", meeting.getDate());
+        intent.putExtra("url", meeting.getUrl());
+        intent.putExtra("platform", meeting.getPlatform());
+        MainActivity.this.startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-
+    }
 }

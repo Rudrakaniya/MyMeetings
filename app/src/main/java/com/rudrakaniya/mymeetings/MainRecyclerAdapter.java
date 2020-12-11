@@ -1,6 +1,7 @@
 package com.rudrakaniya.mymeetings;
 
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,14 @@ import java.util.List;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>{
 
+    private static final String TAG = "MainRecyclerAdapter";
     private List<Section> sectionList = new ArrayList<>();
+
+    RecycleViewClickListener recycleViewClickListener;
+
+    public MainRecyclerAdapter(RecycleViewClickListener recycleViewClickListener) {
+        this.recycleViewClickListener = recycleViewClickListener;
+    }
 
     @NonNull
     @Override
@@ -37,10 +45,8 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
         holder.sectionNameTextView.setText(sectionName);
 
-        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter(items);
+        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter(items, recycleViewClickListener);
         holder.childRecyclerView.setAdapter(childRecyclerAdapter);
-
-
     }
 
     public void setSectionList(List<Section> sectionList) {

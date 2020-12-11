@@ -13,5 +13,6 @@
     <color name="colorPink">#f92b45</color>
     <color name="colorLightPink">#FFC0CB</color>
     <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorBlue">#0000EE</color>
 
 </resources>

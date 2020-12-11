@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground">
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/platformIV"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="32dp"
@@ -20,25 +21,68 @@
         android:id="@+id/itemTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:layout_marginStart="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/rightArrowButton"
+        app:layout_constraintStart_toEndOf="@+id/platformIV"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/meetingLinkTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="https://meet.google.com/xuw-fhjq-fgf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/itemTextView"
-        android:paddingBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        />
+        android:paddingBottom="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/rightArrowButton"
+        android:text="https://meet.google.com/xuw-fhjq-fgf/xuw-fhjq-fgf/xuw-fhjq-fgf/xuw-fhjq-fgf/xuw-fhjq-fgf/xuw-fhjq-fgf/xuw-fhjq-fgf"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/platformIV"
+        app:layout_constraintTop_toBottomOf="@+id/itemTextView" />
+
+
+    <ImageView
+        android:id="@+id/clockIcon"
+        android:layout_width="10dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/alarm_clock"
+        app:layout_constraintStart_toEndOf="@+id/platformIV"
+        app:layout_constraintTop_toBottomOf="@+id/meetingLinkTV" />
+
+    <TextView
+        android:id="@+id/dateAndTimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:paddingStart="2dp"
+        android:paddingBottom="8dp"
+        android:text="26th of December, 2020  •  11:15 AM"
+        android:textColor="@color/colorPink"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@+id/clockIcon"
+        app:layout_constraintTop_toBottomOf="@+id/meetingLinkTV" />
+
+    <ImageView
+        android:id="@+id/rightArrowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

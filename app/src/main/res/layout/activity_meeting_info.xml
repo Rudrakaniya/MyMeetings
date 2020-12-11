@@ -33,6 +33,7 @@
                     android:layout_width="42dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="8dp"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -63,11 +64,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/editButtonImageView"
-                    android:layout_width="28dp"
+                    android:id="@+id/shareButtonImageView"
+                    android:layout_width="22dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="14dp"
-                    android:src="@drawable/ic_baseline_edit_24"
+                    android:clickable="true"
+                    android:src="@drawable/share_option"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -80,6 +82,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +103,7 @@
                 android:id="@+id/meetingTitleIV"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/meet"
                 app:layout_constraintEnd_toStartOf="@+id/meetingTitleTV"
@@ -113,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Meeting Name"
-                android:textSize="18dp"
+                android:text="Meeting with assure platform client"
+                android:textSize="16dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/meetingTitleIV"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -125,18 +128,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
-                android:text="Meeting Date and Time"
+                android:text="26th of December, 2020  •  11:15 AM"
                 android:textSize="12dp"
                 app:layout_constraintStart_toEndOf="@+id/meetingTitleIV"
                 app:layout_constraintTop_toBottomOf="@+id/meetingTitleTV" />
 
+<!--            hex of grey = A9A9A9-->
             <ImageView
                 android:id="@+id/meetinglinkIV"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/meet"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="26dp"
+                android:src="@drawable/ic_baseline_videocam_24"
                 app:layout_constraintEnd_toStartOf="@+id/meetinglinkTV"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/meetingDateandTimeTV" />
@@ -146,15 +150,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="24dp"
                 android:text="google.meet.com/xtzxyx"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/meetinglinkIV"
                 app:layout_constraintTop_toBottomOf="@+id/meetingDateandTimeTV" />
+
+            <ImageView
+                android:id="@+id/meetingPlatformIV"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/ic_baseline_fiber_smart_record_24"
+                app:layout_constraintEnd_toStartOf="@+id/meetingPlatformTV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetinglinkIV" />
+
+            <TextView
+                android:id="@+id/meetingPlatformTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Google Meet"
+                android:textSize="14dp"
+                app:layout_constraintStart_toEndOf="@+id/meetingPlatformIV"
+                app:layout_constraintTop_toBottomOf="@+id/meetinglinkTV" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:clickable="true"
+                android:text="Delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meetingPlatformTV" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:layout_width="340dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/undraw_online_calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
