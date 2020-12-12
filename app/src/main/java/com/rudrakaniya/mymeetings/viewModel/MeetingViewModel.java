@@ -70,4 +70,18 @@ public class MeetingViewModel extends AndroidViewModel {
     public LiveData<List<Meeting>> getAllMeetings(){
         return meetingsRoomDatabase.meetingsDao().findAllMeetings();
     }
+
+    public void deleteMeeting(Integer mMeetingUid) {
+        MeetingsRoomDatabase.databaseWriteExecutor.submit(() -> {
+
+            Meeting meeting = meetingsRoomDatabase
+                    .meetingsDao()
+                    .findMeetingById(mMeetingUid);
+
+            meetingsRoomDatabase
+                    .meetingsDao()
+                    .deleteMeeting(meeting);
+
+        });
+    }
 }

@@ -1,6 +1,7 @@
 package com.rudrakaniya.mymeetings;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.rudrakaniya.mymeetings.db.MeetingsRoomDatabase;
+import com.rudrakaniya.mymeetings.entity.Meeting;
+import com.rudrakaniya.mymeetings.viewModel.MeetingViewModel;
 
 public class MeetingInfo extends AppCompatActivity {
 
@@ -17,6 +22,9 @@ public class MeetingInfo extends AppCompatActivity {
     TextView mMeetingTitleTV, mMeetingDateTV, mMeetingUrlTV, mMeetingPlatformTV;
 
     MaterialButton mDeleteButton;
+    private Integer mMeetingUid;
+    MeetingViewModel meetingViewModel;
+
 
     private static final String TAG = "MeetingInfo";
 
@@ -24,6 +32,9 @@ public class MeetingInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_info);
+
+        meetingViewModel = new ViewModelProvider(this).get(MeetingViewModel.class);
+
         Intent myIntent = getIntent();
 
         mBackButton = findViewById(R.id.backArrowImageView);
@@ -46,6 +57,7 @@ public class MeetingInfo extends AppCompatActivity {
         String month = getMonth(dateIs.substring(5, 7));
         String date = getDate(dateIs.substring(8, 10));
         String time = getTime(dateIs.substring(11, 16));
+        mMeetingUid = myIntent.getIntExtra("uid",1);
 
         dateIs = date + " of " + month + ", " + year + "  •  " + time;
         Log.d(TAG, "onBindViewHolder: " + dateIs);
@@ -57,6 +69,18 @@ public class MeetingInfo extends AppCompatActivity {
                 finish();
             }
         });
+
+        mDeleteButton.setOnClickListener(v ->
+                new MaterialAlertDialogBuilder(this)
+                .setMessage("Are you sure about that?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    meetingViewModel.deleteMeeting(mMeetingUid);
+                    finish();
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    dialog.cancel();
+                }).show()
+        );
 
 
     }

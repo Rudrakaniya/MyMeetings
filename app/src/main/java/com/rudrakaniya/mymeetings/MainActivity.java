@@ -92,10 +92,12 @@ public class MainActivity extends AppCompatActivity implements RecycleViewClickL
         mainRecyclerView.setAdapter(mainRecyclerAdapter);
         meetingViewModel.sectionLiveData().observe(this, sectionList -> {
             Log.d(TAG, "onCreate: Meetings " + sectionList);
-            mainRecyclerAdapter.setSectionList(sectionList);
             if (sectionList.isEmpty()){
                 mEmptyImageView.setVisibility(View.VISIBLE);
+            } else {
+                mEmptyImageView.setVisibility(View.GONE);
             }
+            mainRecyclerAdapter.setSectionList(sectionList);
 
         });
 
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewClickL
         intent.putExtra("date", meeting.getDate());
         intent.putExtra("url", meeting.getUrl());
         intent.putExtra("platform", meeting.getPlatform());
+        intent.putExtra("uid", meeting.getUid());
         MainActivity.this.startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 

@@ -11,6 +11,7 @@ public class Meeting {
 
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "meeting_uid")
     private int uid;
 
     @ColumnInfo(name = "meeting_title")
