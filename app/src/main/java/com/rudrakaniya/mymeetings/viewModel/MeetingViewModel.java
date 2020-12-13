@@ -46,7 +46,7 @@ public class MeetingViewModel extends AndroidViewModel {
                         return dateTime.toLocalDate();
                     }, Collectors.toList()));
 
-            Log.d(TAG, "sectionLiveData: " + map);
+            Log.d(TAG, "sectionLiveData: MapData" + map);
             map.forEach((date, meetings) -> {
                 Log.d(TAG, "sectionLiveData: Map" + meetings);
 
@@ -59,10 +59,12 @@ public class MeetingViewModel extends AndroidViewModel {
                         sectionList.add(new Section(date.toString(), date, meetings));
                     }
                 }
+                Log.d(TAG, "sectionLiveData: S" + sectionList);
             });
 
+
             sectionList.sort((o1, o2) -> o1.getDate().compareTo(o2.getDate()));
-            Log.d(TAG, "sectionLiveData: S" + sectionList);
+            //Log.d(TAG, "sectionLiveData: S" + sectionList);
             return sectionList;
         });
     }

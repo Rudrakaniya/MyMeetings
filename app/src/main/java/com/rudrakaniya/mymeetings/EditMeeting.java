@@ -32,6 +32,8 @@ import com.rudrakaniya.mymeetings.entity.Meeting;
 
 import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.Callable;
 
 public class EditMeeting extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, AdapterView.OnItemSelectedListener {
 
@@ -39,6 +41,8 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
     int day, month, year, hour, minute;
     int myday, myMonth, myYear, myHour, myMinute;
     ConstraintLayout mBackButtonLayout;
+
+    private static final String TAG = "EditMeeting";
 
     public String[] modeOptions = {"Online", "Offline"};
     MaterialButton mSaveButton;
@@ -53,6 +57,8 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_meeting);
 
+        Intent myIntent = getIntent();
+
         mDateEditText = findViewById(R.id.date_editText);
         mBackButtonLayout = findViewById(R.id.backButtonLayout);
 
@@ -64,6 +70,34 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
         mIdET = findViewById(R.id.id_editText);
         mPasswordET = findViewById(R.id.password_editText);
         mMessageET = findViewById(R.id.messageEditText);
+
+        mTitleET.setText(myIntent.getStringExtra("title"));
+        mPlatformET.setText(myIntent.getStringExtra("platform"));
+        mUrlET.setText(myIntent.getStringExtra("url"));
+        mIdET.setText(myIntent.getStringExtra("id"));
+
+        mPasswordET.setText(myIntent.getStringExtra("password"));
+
+        Date date = (Date) myIntent.getSerializableExtra("dateObject");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        myday = calendar.get(Calendar.DAY_OF_MONTH);
+        myMonth = calendar.get(Calendar.MONTH) + 1;
+        myYear = calendar.get(Calendar.YEAR);
+
+        myHour = calendar.get(Calendar.HOUR);
+        myMinute = calendar.get(Calendar.MINUTE);
+
+        mMessageET.setText(myIntent.getStringExtra("og"));
+
+        mDateEditText.setText(myHour + ":" + myMinute + "  " + myday + "/" + myMonth + "/" + myYear);
+        Log.d(TAG, "onTimeSet: From Intent " + "    Year: " + myYear + "  " +
+                "Month: " + myMonth + "  " +
+                "Day: " + myday + "  " +
+                "Hour: " + myHour + "  " +
+                "Minute: " + myMinute);
+
 
         isOnline = true;
 
@@ -133,6 +167,7 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
                             mPlatform,
                             LocalDateTime.of(myYear, myMonth, myday, myHour, myMinute).toString(),
                             mUrl,
+                            mId,
                             mPassword,
                             mMessage
                     ));
@@ -176,11 +211,7 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         myHour = hourOfDay;
         myMinute = minute;
-        mDateEditText.setText("Year: " + myYear + "  " +
-                "Month: " + myMonth + "  " +
-                "Day: " + myday + "  " +
-                "Hour: " + myHour + "  " +
-                "Minute: " + myMinute);
+        mDateEditText.setText(myHour + ":" + myMinute + "  " + myday + "/" + myMonth + "/" + myYear);
 
         Log.d("TAG", "onTimeSet: " + "    Year: " + myYear + "  " +
                 "Month: " + myMonth + "  " +

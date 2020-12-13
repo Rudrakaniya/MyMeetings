@@ -116,10 +116,13 @@
 
             <TextView
                 android:id="@+id/meetingTitleTV"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Meeting with assure platform client"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -151,10 +154,12 @@
 
             <TextView
                 android:id="@+id/meetinglinkTV"
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="google.meet.com/xtzxyx"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/meetinglinkIV"
@@ -173,10 +178,12 @@
 
             <TextView
                 android:id="@+id/meetingPlatformTV"
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Google Meet"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/meetingPlatformIV"
@@ -195,10 +202,12 @@
 
             <TextView
                 android:id="@+id/meetingUserTV"
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Not required"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/meetingUserIV"
@@ -217,11 +226,13 @@
 
             <TextView
                 android:id="@+id/meetingKeyTV"
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="2dp"
                 android:text="Not required"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/meetingKeyIV"
                 app:layout_constraintTop_toBottomOf="@+id/meetingUserTV" />

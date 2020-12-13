@@ -87,9 +87,14 @@ public class MainActivity extends AppCompatActivity implements RecycleViewClickL
         });
 
 
+        meetingViewModel.getAllMeetings().observe(this, meetings -> {
+            Log.d(TAG, "onCreate: M" + meetings);
+        });
+
 
 
         mainRecyclerView.setAdapter(mainRecyclerAdapter);
+
         meetingViewModel.sectionLiveData().observe(this, sectionList -> {
             Log.d(TAG, "onCreate: Meetings " + sectionList);
             if (sectionList.isEmpty()){
@@ -114,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements RecycleViewClickL
         intent.putExtra("url", meeting.getUrl());
         intent.putExtra("platform", meeting.getPlatform());
         intent.putExtra("uid", meeting.getUid());
+        intent.putExtra("meetingId" , meeting.getId());
+        intent.putExtra("meetingPass" , meeting.getPassword());
         MainActivity.this.startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 

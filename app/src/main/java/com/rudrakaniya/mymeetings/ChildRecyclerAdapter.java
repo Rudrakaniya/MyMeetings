@@ -40,6 +40,22 @@ public class ChildRecyclerAdapter extends RecyclerView.Adapter<ChildRecyclerAdap
         holder.itemTitleTextView.setText(meeting.getMeetingTitle());
         holder.itemLinkTV.setText(meeting.getUrl());
 
+        String s = meeting.getUrl();
+
+        if (s.contains("meet.google")) {
+            holder.itemPlatformIV.setImageResource(R.drawable.meet);
+
+        } else if (s.contains("webex")) {
+            holder.itemPlatformIV.setImageResource(R.drawable.webex);
+
+        } else if (s.contains("zoom")) {
+            holder.itemPlatformIV.setImageResource(R.drawable.zoom);
+
+        } else if (s.contains("microsoft")) {
+            holder.itemPlatformIV.setImageResource(R.drawable.teams);
+
+        }
+
         String dateIs = meeting.getDate();
         String year = dateIs.substring(0, 4);
         String month = getMonth(dateIs.substring(5, 7));

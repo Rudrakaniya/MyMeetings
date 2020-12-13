@@ -29,6 +29,17 @@ public class Meeting {
     @ColumnInfo(name = "url")
     private String url;
 
+    @ColumnInfo(name = "id")
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @ColumnInfo(name = "password")
     private String password;
 
@@ -38,12 +49,13 @@ public class Meeting {
     public Meeting() {
     }
 
-    public Meeting(String meetingTitle, boolean isOnline, String platform, String date, String url, String password, String originalMessage) {
+    public Meeting(String meetingTitle, boolean isOnline, String platform, String date, String url, String id, String password, String originalMessage) {
         this.meetingTitle = meetingTitle;
         this.isOnline = isOnline;
         this.platform = platform;
         this.date = date;
         this.url = url;
+        this.id = id;
         this.password = password;
         this.originalMessage = originalMessage;
     }
