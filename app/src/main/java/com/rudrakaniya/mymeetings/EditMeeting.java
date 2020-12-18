@@ -198,7 +198,7 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
 
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
-        calendar.set(myYear, myMonth - 1, myday, myHour, myMinute - 2, 1);
+        calendar.set(myYear, myMonth - 1, myday, myHour, myMinute - 15, 1);
 
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
