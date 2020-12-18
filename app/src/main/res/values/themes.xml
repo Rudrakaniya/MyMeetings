@@ -26,4 +26,8 @@
         <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
     </style>
 
+    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+    </style>
+
 </resources>

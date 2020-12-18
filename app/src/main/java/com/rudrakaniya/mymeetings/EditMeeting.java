@@ -4,7 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -27,6 +29,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.rudrakaniya.mymeetings.alarm.AlarmReceiver;
 import com.rudrakaniya.mymeetings.db.MeetingRepository;
 import com.rudrakaniya.mymeetings.entity.Meeting;
 
@@ -173,6 +176,7 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
                     ));
 //                    Snackbar.make(findViewById(android.R.id.content), "Meeting Added Successfully :)", Snackbar.LENGTH_SHORT).show();
 
+                    addAlarmService();
 //                    Intent myIntent = new Intent(EditMeeting.this, MainActivity.class);
 //                    EditMeeting.this.startActivity(myIntent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -185,6 +189,38 @@ public class EditMeeting extends AppCompatActivity implements DatePickerDialog.O
 
             }
         });
+
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void addAlarmService() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.clear();
+        calendar.set(myYear, myMonth - 1, myday, myHour, myMinute - 2, 1);
+
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
+        notificationIntent.putExtra("title", mTitle);
+        notificationIntent.putExtra("link", mUrl);
+        notificationIntent.putExtra("messageText", "Your meeting is about to start in 15 minutes");
+
+
+        // First alarm
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, (int) System.currentTimeMillis(), notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcast);
+        Log.d(TAG, "addAlarmService: Alarm set for 15 minutes earlier with ID " + (int) System.currentTimeMillis());
+
+
+        // Second alarm
+        calendar.set(myYear, myMonth - 1, myday, myHour, myMinute, 1);
+        notificationIntent.putExtra("messageText", "It's time to attend this meeting");
+        PendingIntent broadcastForMain = PendingIntent.getBroadcast(this, (int) System.currentTimeMillis(), notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), broadcastForMain);
+        Log.d(TAG, "addAlarmService: Alarm set for exact time with ID " + (int) System.currentTimeMillis());
 
 
     }
