@@ -19,6 +19,18 @@ MyMeetings will give you two reminder Vai notifications, one before 15 minutes a
 <br>
 The app flawlessly supports Dark theme as well as Light theme, adapts according to the system default theme.
 <br><br>
+
+## Supported Platforms
+<table>
+  <tr>
+    <td><img src="https://i.imgur.com/EUV0Eap.png" width=45 height=45></td>
+    <td><img src="https://i.imgur.com/qwqPl7A.png" width=45 height=45></td>
+    <td><img src="https://i.imgur.com/ses14t2.png" width=45 height=45 ></td>
+    <td><img src="https://i.imgur.com/qXeiD9P.png" width=45 height=45></td>
+  </tr>
+</table>
+
+<br>
 Built with a bunch of things, but to name a few:
 
 - [Room library is used to store meeting information locally (SQLite database)](https://developer.android.com/reference/android/arch/persistence/room/RoomDatabase)
