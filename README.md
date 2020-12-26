@@ -36,7 +36,7 @@ Built with a bunch of things, but to name a few:
 - [Room library is used to store meeting information locally (SQLite database)](https://developer.android.com/reference/android/arch/persistence/room/RoomDatabase)
 - [Android AlarmManager is used to call a service to notify the user before a meeting](https://developer.android.com/reference/android/arch/persistence/room/RoomDatabase)
 - [Regex is used to automatically detect information related to a meeting](https://developer.android.com/reference/java/util/regex/Pattern)
-- [The project structure is designed with MVP architectural pattern](https://www.journaldev.com/14886/android-mvp)
+- [The project structure is designed with MVVM architectural pattern](https://www.journaldev.com/20292/android-mvvm-design-pattern)
 - [Google's Material Theming is used to design the app to ensure that the app is easy to use and looks fancy at the same time](https://material.io/develop/android)
 
 
