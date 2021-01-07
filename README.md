@@ -15,7 +15,7 @@
 
 To add a meeting copy to your meeting invitation message and paste it into the new meeting section of the app, MyMeetings will automatically detect the URL, meetingID, password, and date. And you can verify that information and save it. 
 <br><br>
-MyMeetings will give you two reminder Vai notifications, one before 15 minutes and the other at the exact time of the meeting. You can join the meeting just by clicking on notifications.
+MyMeetings will give you two reminder via notifications, one before 15 minutes and the other at the exact time of the meeting. You can join the meeting just by clicking on notifications.
 <br>
 The app flawlessly supports Dark theme as well as Light theme, adapts according to the system default theme.
 <br><br>
